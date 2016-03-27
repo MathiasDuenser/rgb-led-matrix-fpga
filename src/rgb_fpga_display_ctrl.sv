@@ -1,8 +1,10 @@
 //****************************************************************************
-// Speedyweb.at
+// X-1 (http://x-1.at)
 //
-// Project:    RGB LED Matrix
-// Module:     Display Control
+// Project:     RGB LED Matrix
+// Module:      Display Control
+// Author:      Mathias Duenser (MaDu)
+//
 // ChangeLog:
 //  V01 MaDu 26.03.2016
 //      -- Initial Release
@@ -16,7 +18,7 @@ module rgb_fpga_display_ctrl (
     input               line_rdy,       // line is ready
     
     // ---------------- OUTPUT PORT DECLARATIONS -------------------
-	    
+        
     output logic        line_start, // start line
     output logic        frame_rdy,  // one frame done
     output logic [3:0]  matrix_addr  // line output data signal
@@ -69,8 +71,8 @@ module rgb_fpga_display_ctrl (
         // FSM default output values
         // -------------------------
         line_start                  = 1'b0;
-        matrix_addr_reset            = 1'b0;
-        matrix_addr_increase         = 1'b0;
+        matrix_addr_reset           = 1'b0;
+        matrix_addr_increase        = 1'b0;
         frame_rdy                   = 1'b0;
         fsm_display_ctrl_next_state = fsm_display_ctrl_current_state;
     

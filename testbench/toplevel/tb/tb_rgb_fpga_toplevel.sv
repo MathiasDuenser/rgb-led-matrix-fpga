@@ -1,8 +1,10 @@
 //****************************************************************************
-// Speedyweb.at
+// X-1 (http://x-1.at)
 //
-// Project:    RGB LED Matrix
-// Module:     Toplevel
+// Project:     RGB LED Matrix
+// Module:      Testbench
+// Author:      Mathias Duenser (MaDu)
+//
 // ChangeLog:
 //  V01 MaDu 23.03.2016
 //      -- Initial Release
@@ -17,16 +19,16 @@ module tb_rgb_fpga_toplevel ();
     /* input */ logic           clk;        // system clock
     /* input */ logic           enable;
     // ---------------- OUTPUT PORT DECLARATIONS -------------------
-	/* output */ logic          matrix_r0;  // r0 line (red #0)
-	/* output */ logic          matrix_g0;  // matrix g0 line (green #0)
-	/* output */ logic          matrix_b0;  // matrix b0 line (blue #0)
-	/* output */ logic          matrix_r1;  // matrix r0 line (red #1)
-	/* output */ logic          matrix_g1;  // matrix g0 line (green #1)
-	/* output */ logic          matrix_b1;  // matrix b0 line (blue #1)
-	/* output */ logic          matrix_clk; // matrix clock line
-	/* output */ logic		    matrix_oe;  // matrix output enable line
-	/* output */ logic		    matrix_lat; // matrix latch line
-	/* output */ logic [3:0]	matrix_addr; // matrix line address (sometimes A,B,C,D)
+    /* output */ logic          matrix_r0;  // r0 line (red #0)
+    /* output */ logic          matrix_g0;  // matrix g0 line (green #0)
+    /* output */ logic          matrix_b0;  // matrix b0 line (blue #0)
+    /* output */ logic          matrix_r1;  // matrix r0 line (red #1)
+    /* output */ logic          matrix_g1;  // matrix g0 line (green #1)
+    /* output */ logic          matrix_b1;  // matrix b0 line (blue #1)
+    /* output */ logic          matrix_clk; // matrix clock line
+    /* output */ logic          matrix_oe;  // matrix output enable line
+    /* output */ logic          matrix_lat; // matrix latch line
+    /* output */ logic [3:0]    matrix_addr; // matrix line address (sometimes A,B,C,D)
     
     // ---- DUT instance ----------------------------
     rgb_fpga_toplevel o_rgb_fpga_toplevel(.*);

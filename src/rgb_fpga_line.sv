@@ -1,8 +1,10 @@
 //****************************************************************************
-// Speedyweb.at
+// X-1 (http://x-1.at)
 //
-// Project:    RGB LED Matrix
-// Module:     Line
+// Project:     RGB LED Matrix
+// Module:      Line
+// Author:      Mathias Duenser (MaDu)
+//
 // ChangeLog:
 //  V01 MaDu 25.03.2016
 //      -- Initial Release
@@ -16,7 +18,7 @@ module rgb_fpga_line (
     input               line_start, // start strobe
     input [31:0][7:0]   data,       // data for one line (8 Bit)
     // ---------------- OUTPUT PORT DECLARATIONS -------------------
-	
+    
     
     output logic        clk_o,      // output clock for shift register
     output logic        line_o,     // line output data signal
@@ -24,11 +26,11 @@ module rgb_fpga_line (
     output logic        line_oe,    // line output enable signal
     output logic        line_rdy    // line data was streamed out
 );
-	
-	logic   [7:0]       pwm_cnt;
+    
+    logic   [7:0]       pwm_cnt;
     bit     [31:0]      col_cnt;
-	
-	always_ff @ (negedge rst_n or posedge clk) begin : pwm_counter
+    
+    always_ff @ (negedge rst_n or posedge clk) begin : pwm_counter
         if (!rst_n) begin
             pwm_cnt <= 8'd0;                                        // default
         end else begin
@@ -43,7 +45,7 @@ module rgb_fpga_line (
                 end
         end
     end : pwm_counter
-	
+    
     always_ff @ (negedge rst_n or posedge clk) begin : col_counter
         if (!rst_n) begin
             col_cnt <= 5'd0;                                        // default set to all ones (short '1)
