@@ -1,0 +1,6 @@
+DATE = "19:58:29 March 27, 2016"
+QUARTUS_VERSION = "12.0"
+
+# Revisions
+
+PROJECT_REVISION = "rgb_led_matrix_fpga"
