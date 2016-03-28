@@ -6,6 +6,8 @@
 // Author:      Mathias Duenser (MaDu)
 //
 // ChangeLog:
+//  V02 MaDu 28.03.2016
+//      -- Inverted line_oe (is low active), set to logic high in disabled and reset state
 //  V01 MaDu 25.03.2016
 //      -- Initial Release
 //****************************************************************************
@@ -95,15 +97,15 @@ module rgb_fpga_line (
     
     always_ff @ (negedge rst_n or posedge clk) begin : line_output_enable
         if (!rst_n) begin
-            line_oe <= 1'b0;          // default
+            line_oe <= 1'b1;          // default
         end else begin
             if(!enable)
-                line_oe <= 1'b0;
+                line_oe <= 1'b1;
             else
                 if(((col_cnt == 5'd31) && clk_o) || line_lat)
-                    line_oe <= 1'b0;
-                else
                     line_oe <= 1'b1;
+                else
+                    line_oe <= 1'b0;
         end
     end : line_output_enable
     
