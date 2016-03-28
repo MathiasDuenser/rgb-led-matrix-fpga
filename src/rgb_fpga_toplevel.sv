@@ -37,14 +37,14 @@ module rgb_fpga_toplevel (
     //logic       line_start;       // not required if signal is defined as output (only during debugging)
     logic       frame_rdy;
     
-    assign data = {8'd1,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
+    assign data = {8'd255,8'd128,8'd10,8'd1,8'd0,8'd0,8'd0,8'd0,
                      8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
                      8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
-                     8'd0,8'd0,8'd0,8'd0,8'd0,8'd4,8'd2,8'd0}; // PWM values for one line, 8 Bit depth
-    assign data_g = {8'd1,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
+                     8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd255}; // PWM values for one line, 8 Bit depth
+    assign data_g = {8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
                      8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
                      8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,
-                     8'd0,8'd0,8'd0,8'd0,8'd0,8'd3,8'd0,8'd1}; // PWM values for one line, 8 Bit depth
+                     8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0,8'd0}; // PWM values for one line, 8 Bit depth
     
     rgb_fpga_display_ctrl   o_rgp_fpga_display_ctrl(
         .rst_n          (rst_n),                // asynchronous reset
@@ -87,7 +87,7 @@ module rgb_fpga_toplevel (
         .clk            (clk),                  // system clock
         .enable         (enable),               // enable signal
         .line_start     (line_start),           // line start strobe
-        .data           (data),                 // data for one line (32 x 8 Bit)
+        .data           (data_g),               // data for one line (32 x 8 Bit)
         .clk_o          (),                     // output clock for shift register
         .line_o         (matrix_b0),            // line output data signal
         .line_lat       (),                     // line latch signal
@@ -100,7 +100,7 @@ module rgb_fpga_toplevel (
         .clk            (clk),                  // system clock
         .enable         (enable),               // enable signal
         .line_start     (line_start),           // line start strobe
-        .data           (data),                 // data for one line (32 x 8 Bit)
+        .data           (data_g),               // data for one line (32 x 8 Bit)
         .clk_o          (),                     // output clock for shift register
         .line_o         (matrix_r1),            // line output data signal
         .line_lat       (),                     // line latch signal
@@ -113,7 +113,7 @@ module rgb_fpga_toplevel (
         .clk            (clk),                  // system clock
         .enable         (enable),               // enable signal
         .line_start     (line_start),           // line start strobe
-        .data           (data),                 // data for one line (32 x 8 Bit)
+        .data           (data_g),               // data for one line (32 x 8 Bit)
         .clk_o          (),                     // output clock for shift register
         .line_o         (matrix_g1),            // line output data signal
         .line_lat       (),                     // line latch signal
@@ -126,7 +126,7 @@ module rgb_fpga_toplevel (
         .clk            (clk),                  // system clock
         .enable         (enable),               // enable signal
         .line_start     (line_start),           // line start strobe
-        .data           (data),                 // data for one line (32 x 8 Bit)
+        .data           (data),               	// data for one line (32 x 8 Bit)
         .clk_o          (),                     // output clock for shift register
         .line_o         (matrix_b1),            // line output data signal
         .line_lat       (),                     // line latch signal
